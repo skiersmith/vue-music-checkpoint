@@ -29,11 +29,12 @@ var store = new vuex.Store({
     },
     addToMyTunes({commit, dispatch}, track){
       //this will post to your server adding a new track to your tunes
-      $.post('http://localhost:3000/api/songs/' + track)
+      debugger
+      $.post('http://localhost:3000/api/songs')
     },
     removeTrack({commit, dispatch}, track){
       //Removes track from the database with delete
-      $.delete('http://localhost:3000/api/songs/' + track)
+      $.delete('http://localhost:3000/api/songs/' + track.songId)
     },
     promoteTrack({commit, dispatch}, track){
       //this should increase the position / upvotes and downvotes on the track

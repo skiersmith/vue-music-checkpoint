@@ -28,15 +28,15 @@
 
 <style>
     .my-tunes {
-        display: inline-block;
+        display: block;
         min-height: 500px;
         min-width: 50%;
-        background: green;
+        background: rgb(106, 138, 106);
     }
 
     .itunes {
-        display: inline-block;
-        background: red;
+        display: block;
+        background: rgb(194, 116, 116);
         min-height: 500px;
         min-width: 45%;
     }

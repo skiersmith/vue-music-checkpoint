@@ -21,7 +21,7 @@
             </audio>
           </div>
           <div>
-            <button @click="addToMyTunes">Add to Playlist</button>
+            <button @click="addToMyTunes(song)">Add to Playlist</button>
           </div>
         </div>
       </div>
@@ -36,16 +36,16 @@
     name: "itunes",
     data() {
       return {
-        search: "",
-        song: {}
+        search: ""
       }
     },
     methods: {
       getMusicByArtist() {
         this.$store.dispatch("getMusicByArtist", this.search)
       },
-      addToMyTunes() {
-        this.$store.dispatch("addToMyTunes", this.song.trackId)
+      addToMyTunes(song) {
+        debugger
+        this.$store.dispatch("addToMyTunes", song)
       },
     },
     computed: {
@@ -59,4 +59,9 @@
 
 
 <style>
+  .card {
+    background-color: white;
+    max-width: 500px;
+    padding: 0.6rem;
+  }
 </style>

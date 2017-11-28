@@ -2,13 +2,12 @@ var mongoose = require('mongoose')
 
 
 var schema = new mongoose.Schema({
-    name: { type: String, required: true },
-    artist: { type: String },
-    price: { type: Number, },
-    album: { type: String },
-    description: { type: String },
-    img: { type: String },
-    preview: { type: String }
+    trackName: { type: String, required: true },
+    artistName: { type: String },
+    trackPrice: { type: Number, },
+    collectionCensoredName: { type: String },
+    artworkUrl100: { type: String },
+    previewUrl: { type: String }
 })
 
 
