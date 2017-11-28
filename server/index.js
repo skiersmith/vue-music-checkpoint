@@ -1,6 +1,8 @@
 var express = require('express')
 var bp = require('body-parser')
 var dbConnect = require('./config/mlab/mlab-config')
+var songRoutes = require('./routes/song-routes')
+
 
 var server = express()
 var port = 3000
@@ -10,6 +12,7 @@ var port = 3000
 server.use(express.static(__dirname + '/public'))
 server.use(bp.json())
 server.use(bp.urlencoded({ extended: true }))
+server.use(songRoutes)
 
 
 server.listen(port, () => {
