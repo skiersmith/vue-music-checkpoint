@@ -9,7 +9,7 @@ var port = 3000
 // SERVES THE DEFAULT STATIC FILES
 
 // MIDDLEWARE
-server.use(cors({}))
+server.use(cors  ({}))
 server.use(express.static(__dirname + '/public'))
 server.use(bp.json())
 server.use(bp.urlencoded({ extended: true }))

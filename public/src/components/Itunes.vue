@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>itunes</h1>
     <form class="form" @submit.prevent="getMusicByArtist">
       <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
       <div class="form-group">
