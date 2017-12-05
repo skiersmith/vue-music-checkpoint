@@ -6,40 +6,51 @@ vue.use(vuex)
 
 var store = new vuex.Store({
   state: {
-    myTunes: [],
+    myTunes: [
+      {
+        trackName: "hello"
+      }
+    ],
     results: []
   },
   mutations: {
-    setResults(state, data){
+    setResults(state, data) {
       state.results = data.results
+    },
+    setTrack(state, data) {
+      state.myTunes = data
     }
   },
   actions: {
-    getMusicByArtist({commit, dispatch}, artist) {
+    getMusicByArtist({ commit, dispatch }, artist) {
       var url = '//bcw-getter.herokuapp.com/?url=';
       var url2 = 'https://itunes.apple.com/search?term=' + artist;
       var apiUrl = url + encodeURIComponent(url2);
-      $.get(apiUrl).then(data=>{
+      $.get(apiUrl).then(data => {
         commit('setResults', JSON.parse(data))
       })
     },
-    getMyTunes({commit, dispatch}){
+    getMyTunes({ commit, dispatch }) {
       //this should send a get request to your server to return the list of saved tunes
-      $.get('http://localhost:3000/api/songs')
+      debugger
+      $.get('//localhost:3000/api/songs').then(data => {
+      console.log(data)  
+      commit('setTrack', data)
+      })
     },
-    addToMyTunes({commit, dispatch}, track){
+    addToMyTunes({ commit, dispatch }, track) {
       //this will post to your server adding a new track to your tunes
       debugger
-      $.post('http://localhost:3000/api/songs')
+      $.post('http://localhost:3000/api/songs', track)
     },
-    removeTrack({commit, dispatch}, track){
+    removeTrack({ commit, dispatch }, track) {
       //Removes track from the database with delete
       $.delete('http://localhost:3000/api/songs/' + track.songId)
     },
-    promoteTrack({commit, dispatch}, track){
+    promoteTrack({ commit, dispatch }, track) {
       //this should increase the position / upvotes and downvotes on the track
     },
-    demoteTrack({commit, dispatch}, track){
+    demoteTrack({ commit, dispatch }, track) {
       //this should decrease the position / upvotes and downvotes on the track
     }
 

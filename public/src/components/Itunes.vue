@@ -3,8 +3,8 @@
     <form class="form" @submit.prevent="getMusicByArtist">
       <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
       <div class="form-group">
-        <input type="text" class="form-control" name="artist" v-model="search" placeholder="Artist Name" />
-        <button type="submit" class="btn btn-primary" id="get-music-button">Get Music</button>
+        <input type="text"  name="artist" v-model="search" size="30" placeholder="Artist Name" />
+        <button type="submit" class="btn-sm btn-primary" id="get-music-button">Get Music</button>
       </div>
     </form>
 
@@ -46,6 +46,7 @@
       addToMyTunes(song) {
         debugger
         this.$store.dispatch("addToMyTunes", song)
+        this.$store.dispatch("getMyTunes")
       },
     },
     computed: {

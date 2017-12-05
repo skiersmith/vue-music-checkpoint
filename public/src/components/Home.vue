@@ -21,6 +21,9 @@
         components: {
             Itunes,
             MyTunes
+        },
+        mounted(){
+            this.$store.dispatch("getMyTunes")
         }
     }
 </script>
